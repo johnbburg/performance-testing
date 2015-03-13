@@ -19,11 +19,11 @@ then
 
   #drush $2 cc all
 
-  ab -n 100 -c 10 -e $test_date/n1000c10.csv $1
+  ab -n 100 -c 10 -e test-data/$test_date/n1000c10.csv $1
 
   #drush $2 cc all
 
-  ab -n 10000 -c 10 -e $test_date/n10000c10.csv $1
+  ab -n 10000 -c 10 -e test-data/$test_date/n10000c10.csv $1
 
   #drush $2 cc all
 
