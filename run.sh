@@ -24,16 +24,16 @@ then
 
 source ./url-keys.cfg
 
-  declare -a iterate=(0 1 2 3 4)
-
-  for i in "${iterate[@]}"
+  for i in "${!urls[@]}"
   do
 
     #rebase?
 
- #   ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
+    echo ${pages[$i]}
 
-    ./psi.sh $test_date ${pages[$i]} ${urls[$i]}
+    ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
+
+    #./psi.sh $test_date $i ${urls[$i]}
 
   done
 
