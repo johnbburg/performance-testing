@@ -1,7 +1,10 @@
 # Site Performance Testing
 
-This tool will run a suite of site performance realted tests on a set of URLs.
+This tool will run a suite of site performance related tests on a set of URLs. Including:
 
+Apache Benchmark (http://httpd.apache.org/docs/2.2/programs/ab.html)
+Google PageSpeed (https://www.npmjs.com/package/psi)
+WebPageTest.org (http://www.webpagetest.org/)
 
 ## Dependencies
 
