@@ -2,6 +2,16 @@
 # Site performance test automater
 
 
+if [ ! -f settings.cfg ]; then
+  echo "Please create a settings.cfg file first."
+  exit 1;
+fi
+
+if [ ! -f url-keys.cfg ]; then
+  echo "Create a url-keys.cfg file"
+  exit 1;
+fi
+
 source ./settings.cfg
 
 test_date=$(date +%F-%H-%M)
