@@ -6,6 +6,16 @@ source ./settings.cfg
 
 test_date=$(date +%F-%H-%M)
 
+while getopts 'apw' flag; do
+  case "${flag}" in
+    a) benchmark='true' ;;
+    p) pagespeed='true' ;;
+    w) webpagetest='true' ;;
+    *) error "usage ./run.sh [-a] [-p] [-w]"
+  esac
+done
+
+
 read -p "This will run several benchmark tests against the identified server. Do you wish to proceed? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
@@ -29,11 +39,13 @@ source ./url-keys.cfg
 
     #rebase?
 
-    echo ${pages[$i]}
+    if [ "$benchmark" = 'true' ]; then
+      ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
+    fi
 
-    ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
-
-    #./psi.sh $test_date $i ${urls[$i]}
+    if [ "$pagespeed" = 'true' ]; then
+      ./psi.sh $test_date ${pages[$i]} ${urls[$i]}
+    fi
 
   done
 
@@ -43,6 +55,9 @@ else
 fi
 
 # the wpt tool reads urls from a file, so we don't loop over it.
-#./wpt.sh $test_date
+
+if [ "$webpagetest" = 'true' ]; then
+  ./wpt.sh $test_date
+fi
 
 echo "Tests complete, results can be found in $wpt_outputdir/$test_date"

@@ -8,6 +8,8 @@ This tool will run a suite of site performance related tests on a set of URLs. I
 
 [WebPageTest.org](http://www.webpagetest.org/)
 
+The motivation behind this tool is to develop a consistent and convenient method of running performance/benchmark tests.
+
 ## Dependencies
 
 Apache Benchmark (ab): This comes with the standard apache installation.
