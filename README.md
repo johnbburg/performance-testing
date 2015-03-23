@@ -26,5 +26,13 @@ should be added to settings.cfg. API keys can be requested at http://www.webpage
 
 ## Usage
 
-Execute the run.sh script and wait for the result to complete. Using default settings. Test results will be placed in
+./run.sh [-a] [-p] [-w]
+
+-a  Runs apache benchmark tests,
+
+-p  Runs Google PageSpeed tests.
+
+-w  Runs WebPageTest.
+
+Execute the run.sh script and wait for the test to complete, which can take some time. Using default settings. Test results will be placed in
 result/[date and time of test]. 
