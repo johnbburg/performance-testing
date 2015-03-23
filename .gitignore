@@ -2,4 +2,5 @@
 test-data/*
 result/*
 settings.cfg
+url-keys.cfg
 webpagetest/urls.txt

@@ -1,17 +1,21 @@
 #!/bin/bash
 # Performs benchmark tests
 
-echo "Running load tests. This could take a while."
-
 source ./settings.cfg
 
 test_date=$1
+page=$2
+url=$3
+
+echo "Load testing $url."
 
 #drush $2 cc all
 
-mkdir $wpt_outputdir/$test_date/ab
+if [ ! -d $wpt_outputdir/$test_date/ab ]; then
+  mkdir $wpt_outputdir/$test_date/ab
+fi
 
-ab -n 100 -c 10 -e $wpt_outputdir/$test_date/ab/n1000c10.csv $psi_url > $wpt_outputdir/$test_date/ab/n1000c10.txt
+ab -n 10 -c 1 -q -e $wpt_outputdir/$test_date/ab/$page-nn1000c10.csv $url > $wpt_outputdir/$test_date/ab/$page-n1000c10.txt
 
 #drush $2 cc all
 

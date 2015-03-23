@@ -22,11 +22,27 @@ then
     exit 1;
   fi
 
-  #./benchmarks.sh $test_date
+source ./url-keys.cfg
 
-  #./wpt.sh $test_date
+  declare -a iterate=(0 1 2 3 4)
 
-  ./psi.sh $test_date
+  for i in "${iterate[@]}"
+  do
 
+    #rebase?
+
+ #   ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
+
+    ./psi.sh $test_date ${pages[$i]} ${urls[$i]}
+
+  done
+
+else
+  echo "Aborting"
+  exit 1
 fi
 
+# the wpt tool reads urls from a file, so we don't loop over it.
+#./wpt.sh $test_date
+
+echo "Tests complete, results can be found in $wpt_outputdir/$test_date"

@@ -4,20 +4,25 @@
 
 source ./settings.cfg
 
-exists="$(which psi)"
-
 test_date=$1
+page=$2
+url=$3
 
-if [ -n $exists ]; then
+if hash psi 2>/dev/null; then
 
- mkdir $wpt_outputdir/$test_date/psi
+ if [ ! -d $wpt_outputdir/$test_date/psi ]; then
+   mkdir $wpt_outputdir/$test_date/psi
+ fi
 
- echo "Running Page Speed Tests"
+ echo "Running Google PageSpeed Insights on $url"
 
- psi $psi_url --format json --strategy desktop > $wpt_outputdir/$test_date/psi/desktop.json
+ psi $url --format json --strategy desktop > $wpt_outputdir/$test_date/psi/$page-desktop.json
 
- psi $psi_url --format json --strategy mobile > $wpt_outputdir/$test_date/psi/mobile.json
+ psi $url --format json --strategy mobile > $wpt_outputdir/$test_date/psi/$page-mobile.json
+
+ exit 0;
 
 else
- echo "Page speed analysis not available. Install the psi plugin (https://www.npmjs.com/package/psi) and try again."
+ echo "PageSpeed plugin not available. Install the psi plugin (https://www.npmjs.com/package/psi) and try again."
+ exit 1;
 fi
