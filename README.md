@@ -16,6 +16,8 @@ Apache Benchmark (ab): This comes with the standard apache installation.
 
 Google PageSpeed Plugin: https://www.npmjs.com/package/psi
 
+Python 2.6
+
 ## Installation
 
 Clone this repository.
