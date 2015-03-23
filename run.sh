@@ -13,6 +13,7 @@ if [ ! -f url-keys.cfg ]; then
 fi
 
 source ./settings.cfg
+source ./url-keys.cfg
 
 test_date=$(date +%F-%H-%M)
 
@@ -42,7 +43,7 @@ then
     exit 1;
   fi
 
-source ./url-keys.cfg
+
 
   for i in "${!urls[@]}"
   do
