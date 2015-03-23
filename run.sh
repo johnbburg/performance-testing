@@ -22,7 +22,8 @@ while getopts 'apw' flag; do
     a) benchmark='true' ;;
     p) pagespeed='true' ;;
     w) webpagetest='true' ;;
-    *) error "usage ./run.sh [-a] [-p] [-w]"
+    *) echo "usage ./run.sh [-a] [-p] [-w]"
+    exit 1;
   esac
 done
 
