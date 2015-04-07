@@ -21,6 +21,6 @@ ab -n 10000 -c 10 -e $wpt_outputdir/$test_date/ab/$i-n10000c10.csv $url > $wpt_o
 
 ab -n 10000 -c 50 -e $wpt_outputdir/$test_date/ab/$i-n10000c50.csv $url > $wpt_outputdir/$test_date/ab/$i-n10000c50.txt
 
-ab -n 50000 -c 50 -e $wpt_outputdir/$test_date/ab/$i-n50000c50.csv $url > $wpt_outputdir/$test_date/ab/$i-n50000c50.txt
+ab -n 10000 -c 100 -e $wpt_outputdir/$test_date/ab/$i-n10000c100.csv $url > $wpt_outputdir/$test_date/ab/$i-n10000c100.txt
 
-ab -n 50000 -c 100 -e $wpt_outputdir/$test_date/ab/$i-n50000c100.csv $url > $wpt_outputdir/$test_date/ab/$i-n50000c100.txt
+ab -n 10000 -c 200 -e $wpt_outputdir/$test_date/ab/$i-n10000c200.csv $url > $wpt_outputdir/$test_date/ab/$i-n10000c200.txt

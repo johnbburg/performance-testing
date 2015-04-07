@@ -49,8 +49,6 @@ then
   for i in "${!urls[@]}"
   do
 
-    #rebase?
-
     if [ "$benchmark" = 'true' ]; then
       ./benchmarks.sh $test_date ${pages[$i]} ${urls[$i]}
     fi
@@ -67,7 +65,6 @@ else
 fi
 
 # the wpt tool reads urls from a file, so we don't loop over it.
-
 if [ "$webpagetest" = 'true' ]; then
   ./wpt.sh $test_date
 fi
