@@ -17,18 +17,10 @@ fi
 
 ab -n 100 -c 10 -q -e $wpt_outputdir/$test_date/ab/$i-n100c10.csv $url > $wpt_outputdir/$test_date/ab/$i-n100c10.txt
 
-# TODO: Clear caches
+ab -n 10000 -c 10 -e $wpt_outputdir/$test_date/ab/$i-n10000c10.csv $url > $wpt_outputdir/$test_date/ab/$i-n10000c10.txt
 
-#ab -n 10000 -c 10 -e test-data/$test_date/n10000c10.csv $psi_url
+ab -n 10000 -c 50 -e $wpt_outputdir/$test_date/ab/$i-n10000c50.csv $url > $wpt_outputdir/$test_date/ab/$i-n10000c50.txt
 
-# TODO: Clear caches
+ab -n 50000 -c 50 -e $wpt_outputdir/$test_date/ab/$i-n50000c50.csv $url > $wpt_outputdir/$test_date/ab/$i-n50000c50.txt
 
-#ab -n 10000 -c 50 -e $test_date/n10000c50.csv $psi_url
-
-# TODO: Clear caches
-
-#ab -n 50000 -c 50 -e $test_date/n50000c50.csv $psi_url
-
-# TODO: Clear caches
-
-#ab -n 50000 -c 100 -e $test_date/n50000c100.csv $psi_url
+ab -n 50000 -c 100 -e $wpt_outputdir/$test_date/ab/$i-n50000c100.csv $url > $wpt_outputdir/$test_date/ab/$i-n50000c100.txt
