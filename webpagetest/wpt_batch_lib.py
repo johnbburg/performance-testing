@@ -13,6 +13,8 @@ A sample usage of this library can be found in wpt_batch.py.
 
 __author__ = 'zhaoq@google.com (Qi Zhao)'
 
+import pprint
+import socket
 import re
 import urllib
 from xml.dom import minidom
@@ -28,7 +30,10 @@ def __LoadEntity(url, urlopen=urllib.urlopen):
   Returns:
     The response message
   """
-  response = urlopen(url)
+
+  socket.setdefaulttimeout(None)
+  response = urlopen(url, None, None)
+
   return response
 
 
@@ -68,6 +73,8 @@ def SubmitBatch(url_list, test_params, server_url='http://www.webpagetest.org/',
   for url in url_list:
     test_params['url'] = url
     request = server_url + 'runtest.php?%s' % urllib.urlencode(test_params)
+
+    pprint.pprint(request)
     response = __LoadEntity(request, urlopen)
     return_code = response.getcode()
     if return_code == 200:
